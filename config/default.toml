@@ -1,0 +1,76 @@
+[general]
+log_level = "info"
+paper_trading = true
+# Do not trade for the first 5 minutes. Let the vol windows fill with
+# statistically meaningful data before trusting any z-score.
+warmup_secs = 300
+
+[alpaca]
+api_key = ""
+api_secret = ""
+base_url = "https://paper-api.alpaca.markets/v2"
+data_ws_url = "wss://stream.data.alpaca.markets/v2/iex"
+trading_ws_url = "wss://paper-api.alpaca.markets/stream"
+symbols = ["SPY", "QQQ", "AAPL", "MSFT", "NVDA", "TSLA", "AMD", "AMZN", "GOOGL", "META"]
+
+[crypto]
+enabled = true
+ws_url = "wss://stream.data.alpaca.markets/v1beta3/crypto/us"
+symbols = ["BTC/USD", "ETH/USD", "SOL/USD"]
+
+[finnhub]
+enabled = false
+api_key = ""
+poll_interval_secs = 60
+symbols = ["AAPL", "MSFT", "NVDA", "TSLA", "AMD", "AMZN", "GOOGL", "META", "SPY", "QQQ"]
+
+[nats]
+url = "nats://localhost:4222"
+
+[redis]
+url = "redis://localhost:6379"
+
+[questdb]
+enabled = true
+ilp_address = "127.0.0.1:9009"
+
+[signals.cross_asset]
+enabled = true
+vol_window_secs = 1800
+min_ticks = 100
+z_score_threshold = 2.5
+correlation_window_secs = 3600
+signal_cooldown_secs = 300
+
+[signals.technical]
+enabled = true
+rsi_period = 14
+rsi_overbought = 70.0
+rsi_oversold = 30.0
+vwap_deviation_threshold = 0.02
+volume_spike_multiplier = 3.0
+
+[risk]
+max_position_pct = 0.05
+max_total_exposure_pct = 0.50
+max_drawdown_pct = 0.05
+max_open_orders = 10
+min_trade_interval_secs = 120
+max_order_notional = 10000.0
+daily_loss_limit_pct = 0.02
+
+[strategies.crypto_vol_leads_equity]
+enabled = true
+crypto_symbol = "BTC/USD"
+equity_symbols = ["SPY", "QQQ"]
+position_size_pct = 0.03
+vol_spike_threshold = 2.5
+hold_duration_secs = 1800
+
+[strategies.mean_reversion]
+enabled = true
+symbols = ["AAPL", "MSFT", "NVDA", "AMD", "TSLA"]
+rsi_entry_threshold = 30.0
+rsi_exit_threshold = 55.0
+position_size_pct = 0.02
+max_hold_secs = 3600

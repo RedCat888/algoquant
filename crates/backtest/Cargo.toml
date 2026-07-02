@@ -1,0 +1,16 @@
+[package]
+name = "algoquant-backtest"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+algoquant-core = { path = "../core" }
+algoquant-signals = { path = "../signals" }
+algoquant-strategy = { path = "../strategy" }
+algoquant-risk = { path = "../risk" }
+tokio = { workspace = true }
+serde = { workspace = true }
+chrono = { workspace = true }
+rust_decimal = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }

@@ -1,0 +1,27 @@
+[package]
+name = "algoquant-engine"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "algoquant"
+path = "src/main.rs"
+
+[dependencies]
+algoquant-core = { path = "../core" }
+algoquant-ingestion = { path = "../ingestion" }
+algoquant-signals = { path = "../signals" }
+algoquant-strategy = { path = "../strategy" }
+algoquant-risk = { path = "../risk" }
+algoquant-execution = { path = "../execution" }
+algoquant-storage = { path = "../storage" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+rust_decimal = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+async-nats = { workspace = true }
+dotenvy = "0.15"

@@ -1,0 +1,17 @@
+[package]
+name = "algoquant-execution"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+algoquant-core = { path = "../core" }
+algoquant-risk = { path = "../risk" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+rust_decimal = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+reqwest = { workspace = true }
+uuid = { workspace = true }

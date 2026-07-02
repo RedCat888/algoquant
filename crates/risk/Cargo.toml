@@ -1,0 +1,15 @@
+[package]
+name = "algoquant-risk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+algoquant-core = { path = "../core" }
+tokio = { workspace = true }
+serde = { workspace = true }
+chrono = { workspace = true }
+rust_decimal = { workspace = true }
+rust_decimal_macros = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+dashmap = { workspace = true }

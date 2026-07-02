@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/ingestion",
+    "crates/signals",
+    "crates/strategy",
+    "crates/risk",
+    "crates/execution",
+    "crates/storage",
+    "crates/backtest",
+    "crates/engine",
+]
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+rust_decimal = { version = "1", features = ["serde-with-str"] }
+rust_decimal_macros = "1"
+thiserror = "2"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+async-nats = "0.38"
+tokio-tungstenite = { version = "0.26", features = ["native-tls"] }
+futures-util = "0.3"
+reqwest = { version = "0.12", features = ["json", "native-tls"] }
+toml = "0.8"
+notify = "7"
+uuid = { version = "1", features = ["v4"] }
+dashmap = "6"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = true

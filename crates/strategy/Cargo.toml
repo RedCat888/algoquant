@@ -1,0 +1,18 @@
+[package]
+name = "algoquant-strategy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+algoquant-core = { path = "../core" }
+algoquant-signals = { path = "../signals" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+rust_decimal = { workspace = true }
+rust_decimal_macros = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+async-nats = { workspace = true }
+uuid = { workspace = true }
